@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MAV Atelier — Corte y Confección. Clases presenciales y virtuales, cursos digitales, moldes, workbooks y recursos para aprender a crear con tus propias manos." />
+  <title>MAV Atelier | Corte y Confección</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="announcement">Clases personalizadas · Cupos reducidos · Villa Allende</div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="MAV Atelier">
+      <span class="brand-mark">MAV</span>
+      <span class="brand-script">Atelier</span>
+      <span class="brand-sub">CORTE Y CONFECCIÓN</span>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav">
+      <a href="#clases">Clases</a>
+      <a href="#digital">Digital</a>
+      <a href="#moldes">Moldes</a>
+      <a href="#inspiracion">Inspiración</a>
+      <a href="#sobre">Sobre MAV</a>
+      <a class="nav-cta" href="#reservar">Reservar clase</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">ATELIER · VILLA ALLENDE</p>
+        <h1>Aprendé.<br><em>Creá.</em><br>Diseñá con tus propias manos.</h1>
+        <p class="hero-text">Clases de corte y confección, presenciales o virtuales, y recursos digitales para acompañarte desde tu primera puntada hasta tu próximo proyecto.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#reservar">Elegir una clase</a>
+          <a class="button ghost" href="#digital">Explorar MAV Digital</a>
+        </div>
+        <div class="hero-note"><span>✦</span> No necesitás experiencia previa.</div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="fabric fabric-a"></div>
+        <div class="fabric fabric-b"></div>
+        <div class="hero-card">
+          <div class="scissors">✂</div>
+          <div class="hero-card-title">MAV</div>
+          <div class="hero-card-script">Diseño & Costura</div>
+          <div class="thread-line"></div>
+        </div>
+        <div class="thread thread-one"></div>
+        <div class="thread thread-two"></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><strong>01</strong><span>Aprendé desde cero</span></div>
+      <div><strong>02</strong><span>Clases personalizadas</span></div>
+      <div><strong>03</strong><span>Cupos reducidos</span></div>
+      <div><strong>04</strong><span>Presencial o virtual</span></div>
+    </section>
+
+    <section class="section intro reveal">
+      <div class="section-label">MAV · TU ESPACIO CREATIVO</div>
+      <div>
+        <h2>De una tela a una creación.</h2>
+        <p>En MAV aprendés haciendo. Trabajamos con proyectos reales, acompañamiento cercano y una metodología práctica para que cada paso tenga sentido.</p>
+      </div>
+    </section>
+
+    <section id="clases" class="section classes">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">CLASES MAV</span>
+          <h2>Elegí cómo querés aprender.</h2>
+        </div>
+        <p>La modalidad se adapta a tu necesidad: podés venir al atelier en Villa Allende o aprender a distancia.</p>
+      </div>
+      <div class="cards three">
+        <article class="service-card reveal">
+          <div class="icon">✂</div>
+          <h3>Presencial</h3>
+          <p>Encuentros en grupos reducidos, con atención personalizada y práctica guiada.</p>
+          <a href="#reservar">Ver horarios →</a>
+        </article>
+        <article class="service-card featured reveal">
+          <span class="tag">A tu ritmo</span>
+          <div class="icon">⌁</div>
+          <h3>Virtual</h3>
+          <p>Clases online para que puedas aprender desde donde estés, con acompañamiento.</p>
+          <a href="#reservar">Consultar modalidad →</a>
+        </article>
+        <article class="service-card reveal">
+          <div class="icon">✦</div>
+          <h3>Proyecto personal</h3>
+          <p>Si ya tenés una idea, podemos adaptar la clase al proyecto que querés realizar.</p>
+          <a href="#contacto">Contame tu idea →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="reservar" class="section booking reveal">
+      <div class="booking-copy">
+        <span class="eyebrow">RESERVÁ TU LUGAR</span>
+        <h2>Elegí día, horario y modalidad.</h2>
+        <p>La agenda es flexible y se puede ajustar según disponibilidad. Estas franjas funcionan como punto de partida.</p>
+        <div class="availability">
+          <div><span>Martes</span><b>09–12</b><b>15–18</b></div>
+          <div><span>Jueves</span><b>09–12</b><b>15–18</b></div>
+        </div>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <label>Modalidad
+          <select id="mode" required>
+            <option value="">Seleccioná</option>
+            <option>Presencial</option>
+            <option>Virtual</option>
+          </select>
+        </label>
+        <label>Tipo de clase
+          <select required>
+            <option value="">Seleccioná</option>
+            <option>Clase inicial</option>
+            <option>Clase individual</option>
+            <option>Clase regular</option>
+            <option>Proyecto personal</option>
+          </select>
+        </label>
+        <label>Día
+          <select required>
+            <option value="">Seleccioná</option>
+            <option>Martes</option>
+            <option>Jueves</option>
+          </select>
+        </label>
+        <label>Horario
+          <select required>
+            <option value="">Seleccioná</option>
+            <option>09:00 a 12:00</option>
+            <option>15:00 a 18:00</option>
+          </select>
+        </label>
+        <label>Tu nombre
+          <input type="text" placeholder="Nombre y apellido" required />
+        </label>
+        <label>WhatsApp
+          <input type="tel" placeholder="+54 9 ..." required />
+        </label>
+        <button class="button primary full" type="submit">Solicitar turno</button>
+        <small>La reserva queda sujeta a confirmación de disponibilidad.</small>
+      </form>
+    </section>
+
+    <section id="digital" class="section digital">
+      <div class="digital-visual reveal">
+        <div class="paper-card">
+          <span>02</span>
+          <h3>MAV<br><em>Digital</em></h3>
+          <p>Aprendé desde donde estés.</p>
+          <div class="paper-stitch">──────── ✦ ────────</div>
+        </div>
+      </div>
+      <div class="digital-copy reveal">
+        <span class="eyebrow">MAV DIGITAL</span>
+        <h2>El atelier también viaja con vos.</h2>
+        <p>Estamos preparando una colección de cursos, moldes y workbooks descargables para que puedas aprender a tu ritmo.</p>
+        <div class="product-list">
+          <div><span>✦</span><div><strong>Cursos digitales</strong><small>Clases paso a paso</small></div><b>Próximamente</b></div>
+          <div><span>⌁</span><div><strong>Moldes & Workbooks</strong><small>Material práctico para tus proyectos</small></div><b>Próximamente</b></div>
+          <div><span>✂</span><div><strong>Tutoriales</strong><small>Técnicas e ideas para seguir creando</small></div><b>Próximamente</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="moldes" class="section process">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">EL PROCESO MAV</span>
+          <h2>Del papel a la prenda.</h2>
+        </div>
+        <p>La web quedará preparada para incorporar productos digitales y físicos a medida que crezca el atelier.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step reveal"><span>01</span><strong>Idea</strong><small>Imaginá tu proyecto.</small></div>
+        <div class="step reveal"><span>02</span><strong>Tela</strong><small>Elegí textura y color.</small></div>
+        <div class="step reveal"><span>03</span><strong>Molde</strong><small>Pasá la idea al papel.</small></div>
+        <div class="step reveal"><span>04</span><strong>Corte</strong><small>Prepará cada pieza.</small></div>
+        <div class="step reveal"><span>05</span><strong>Costura</strong><small>Uní y transformá.</small></div>
+        <div class="step reveal"><span>06</span><strong>Creación</strong><small>Disfrutá lo que hiciste.</small></div>
+      </div>
+    </section>
+
+    <section id="inspiracion" class="section inspiration">
+      <div class="inspiration-head reveal">
+        <span class="eyebrow">INSPIRACIÓN</span>
+        <h2>Crear también es una forma de expresarte.</h2>
+      </div>
+      <div class="editorial-grid">
+        <div class="editorial large reveal"><span>TEXTURAS</span><h3>La tela<br>también cuenta<br>una historia.</h3></div>
+        <div class="editorial rose reveal"><span>PROYECTOS</span><h3>Una idea.<br>Un molde.<br>Algo hecho por vos.</h3></div>
+        <div class="editorial sage reveal"><span>APRENDER</span><h3>Empezar<br>desde cero<br>también es crear.</h3></div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section about reveal">
+      <div>
+        <span class="eyebrow">SOBRE MAV</span>
+        <h2>Un atelier para aprender creando.</h2>
+      </div>
+      <p>MAV es un espacio de corte y confección pensado para aprender de una manera simple, práctica y cercana. No importa si nunca tocaste una máquina de coser: empezamos desde donde estés y avanzamos hacia lo que quieras crear.</p>
+    </section>
+
+    <section id="contacto" class="contact">
+      <div class="contact-inner reveal">
+        <span class="eyebrow">¿EMPEZAMOS?</span>
+        <h2>Tu próxima creación puede empezar con una tela.</h2>
+        <p>Villa Allende · Córdoba</p>
+        <a class="button light" href="https://wa.me/5493512123856?text=Hola%20MAV%2C%20quiero%20consultar%20por%20las%20clases%20de%20corte%20y%20confecci%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="instagram" href="https://www.instagram.com/mav.disenoycostura/" target="_blank" rel="noopener">@mav.disenoycostura</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span>MAV</span> Atelier · Corte y Confección</div>
+    <div>Villa Allende, Córdoba · +54 9 351 212-3856</div>
+    <div>© 2026 MAV Atelier</div>
+  </footer>
+
+  <div class="toast" id="toast">¡Perfecto! Recibimos tu solicitud. MAV se pondrá en contacto para confirmar disponibilidad.</div>
+  <script src="/script.js"></script>
+</body>
+</html>
