@@ -11,3 +11,24 @@
 .invitation{text-align:center;max-width:1000px}.invitation h2{max-width:850px;margin:18px auto 30px}.contact{background:var(--ink);color:#fff8f0;text-align:center;padding:110px 24px}.contact-inner{max-width:900px;margin:auto}.contact h2{font:600 clamp(50px,7vw,82px)/.9 var(--serif);margin:20px 0}.contact p{color:#e2d4ca}.contact-actions{display:flex;flex-direction:column;align-items:center;gap:20px}.social-links{display:flex;gap:28px}.social-links a{color:#dfaaa4;font-size:13px;border-bottom:1px solid rgba(223,170,164,.45);padding-bottom:3px}footer{background:#3d312c;color:#d9c9bd;padding:24px 5vw;display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.04em}.footer-brand{font:600 23px var(--serif);color:white}.footer-brand span{font-weight:400;margin-left:5px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--rose);color:white;padding:14px 20px;border-radius:999px;box-shadow:var(--shadow);font-size:12px;z-index:100;transition:.35s}.toast.show{transform:translate(-50%,0)}.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:980px){.nav{gap:15px}.hero,.story,.method,.tactile,.booking{grid-template-columns:1fr}.hero-photo{min-height:470px}.hero-photo img{height:470px}.story-photo img{height:470px}.method-grid{grid-template-columns:1fr 1fr}.section-heading{display:block}.section-heading>p{margin-top:15px}.tactile-images{max-width:650px}.booking{gap:45px}}
 @media(max-width:700px){.announcement{font-size:8px}.site-header{padding:9px 17px}.brand-logo{width:150px}.brand-sub{font-size:6px}.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);padding:20px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.nav.open{display:flex}.nav-cta{text-align:center}.menu-toggle{display:block}.hero{padding:55px 22px 35px}.hero h1{font-size:55px}.hero-photo{min-height:400px;border-radius:2px 45px 2px 2px}.hero-photo img{height:400px}.welcome-note{gap:10px}.welcome-note p{font-size:21px}.section{padding:72px 22px}.story-photo img{height:390px}.story-photo span{left:14px;font-size:18px}.story-copy h2,.method h2,.invitation h2{font-size:52px}.class-item{grid-template-columns:40px 1fr;gap:13px}.class-item>a{grid-column:2}.method-grid{grid-template-columns:1fr}.tactile-images{grid-template-columns:1fr 1fr;gap:10px}.tactile-images img:first-child{height:350px}.tactile-images img:last-child{height:270px}.booking-form{padding:24px}.form-grid{grid-template-columns:1fr}.booking-promise{margin-top:25px}footer{flex-direction:column;text-align:center}}
+
+/* MAV learning ecosystem: workbooks and trust-led teaching */
+.workbooks{max-width:none;background:#f8f0e7}
+.workbooks .section-heading,.workbook-grid,.workbook-footnote{max-width:1120px;margin-left:auto;margin-right:auto}
+.workbook-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.workbook-card{background:var(--cream);padding:16px 16px 22px;border:1px solid #e5d4c6;box-shadow:0 12px 32px rgba(75,61,53,.05)}
+.workbook-number{display:block;font-size:9px;letter-spacing:.12em;color:var(--rose);font-weight:700;min-height:30px}
+.workbook-art{height:190px;display:flex;align-items:center;justify-content:center;font:600 72px var(--serif);color:#fff8f0;margin:5px 0 20px;position:relative;overflow:hidden}
+.workbook-art:before,.workbook-art:after{content:"";position:absolute;border:1px solid rgba(255,250,243,.65);border-radius:50%;width:130px;height:130px;transform:rotate(-25deg)}
+.workbook-art:after{width:170px;height:90px;border-radius:50%;transform:rotate(35deg)}
+.workbook-art{background:linear-gradient(135deg,#b77972,#d6a59b)}
+.art-two{background:linear-gradient(135deg,#9b8979,#c5b09b)}
+.art-three{background:linear-gradient(135deg,#b7a08c,#e0c9b4)}
+.art-four{background:linear-gradient(135deg,#a66e69,#d6aaa1)}
+.workbook-art{isolation:isolate}.workbook-art:before,.workbook-art:after{z-index:-1}
+.workbook-card h3{font:600 29px/.98 var(--serif);margin:0 0 12px}
+.workbook-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.workbook-status{display:block;border-top:1px solid var(--line);padding-top:12px;margin-top:18px;color:var(--rose);font-size:9px;letter-spacing:.07em;text-transform:uppercase;font-weight:700}
+.workbook-footnote{font-size:12px;color:var(--muted);text-align:center;margin-top:28px}
+@media(max-width:980px){.workbook-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.workbook-grid{grid-template-columns:1fr}.workbook-art{height:160px}.workbook-card h3{font-size:31px}}
