@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Gracias por tu compra | MAV Diseño &amp; Costura</title>
+  <link rel="icon" type="image/jpeg" href="assets/mav-logo-oficial.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gracias { max-width: 680px; margin: 0 auto; padding: 72px 16px; }
+    .gracias h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: var(--cafe, #584838); font-size: 2.4rem; margin: 0 0 12px; }
+    .gracias .links { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 12px; }
+    .gracias .links a { display: block; padding: 14px 18px; border: 1px solid #E3CCC0; border-radius: 14px; background: #FBF6F1; color: #584838; text-decoration: none; font-weight: 500; }
+    .gracias .links a:hover { border-color: #9A4E47; }
+    .gracias .note { color: #7A6A5C; font-size: .95rem; }
+    .gracias .status { min-height: 1.5em; }
+  </style>
+</head>
+<body>
+  <main class="gracias">
+    <p class="eyebrow">Compra registrada</p>
+    <h1 id="titulo">Recibimos tu pago</h1>
+    <p id="estado" class="status">Estamos verificando tu pago con Mercado Pago…</p>
+    <ul id="links" class="links" aria-live="polite"></ul>
+    <p class="note" id="nota"></p>
+    <p class="note">¿Tenés algún problema con la descarga? Escribinos por WhatsApp: <a href="https://wa.me/5493512123856">+54 9 351 212-3856</a>.</p>
+    <p><a href="index.html#workbooks">Volver a los workbooks</a></p>
+  </main>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var paymentId = params.get('payment_id') || params.get('collection_id');
+      var estado = document.getElementById('estado');
+      var links = document.getElementById('links');
+      var nota = document.getElementById('nota');
+      if (!paymentId) {
+        estado.textContent = 'No encontramos los datos de tu pago en este link.';
+        nota.textContent = 'Si ya pagaste, escribinos por WhatsApp con el comprobante y te enviamos los archivos.';
+        return;
+      }
+      fetch('/api/confirm?payment_id=' + encodeURIComponent(paymentId))
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok) { estado.textContent = res.j.error || 'No pudimos verificar el pago.'; return; }
+          if (res.j.status !== 'approved') {
+            estado.textContent = 'Tu pago todavía no figura como aprobado. Cuando se acredite, volvé a este link o escribinos por WhatsApp.';
+            return;
+          }
+          estado.textContent = 'Tu pago fue aprobado. Ya podés descargar tus archivos.';
+          res.j.links.forEach(function (l) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = l.url; a.textContent = 'Descargar · ' + l.title;
+            li.appendChild(a); links.appendChild(li);
+          });
+          nota.textContent = 'Los links de descarga vencen en ' + (res.j.expires_in_days || 7) + ' días. Guardá los archivos en tu dispositivo.';
+        })
+        .catch(function () { estado.textContent = 'Hubo un problema de conexión. Recargá la página.'; });
+    })();
+  </script>
+</body>
+</html>

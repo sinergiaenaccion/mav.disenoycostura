@@ -1,31 +1,60 @@
-const menuToggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
-menuToggle?.addEventListener('click',()=>nav.classList.toggle('open'));
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-if('IntersectionObserver' in window){
- const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
- document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
-const mode=document.getElementById('mode'),fields=document.getElementById('scheduleFields');
-mode?.addEventListener('change',()=>{fields.hidden=!mode.value});
-const form=document.getElementById('bookingForm');
-form?.addEventListener('submit',e=>{
- e.preventDefault();
- const get=id=>document.getElementById(id)?.value?.trim()||'No especificado';
- const labels={
-  mode:mode?.selectedOptions?.[0]?.textContent||'No especificada',
-  format:get('format'),interest:get('interest'),day:get('day'),time:get('time')
- };
- const inputs=form.querySelectorAll('input');
- const name=inputs[0]?.value?.trim()||'No especificado';
- const phone=inputs[1]?.value?.trim()||'No especificado';
- const message=[
-  'Hola MAV, quiero consultar por las propuestas de Diseño y Costura.',
-  '', 'Mi nombre: '+name,'Mi WhatsApp: '+phone,
-  'Modalidad: '+labels.mode,'Formato: '+labels.format,
-  'Me interesa: '+labels.interest,'Día preferido: '+labels.day,
-  'Horario preferido: '+labels.time,
-  '', '¿Podemos coordinar una opción?'
- ].join('\n');
- const url='https://wa.me/5493512123856?text='+encodeURIComponent(message);
- window.open(url,'_blank','noopener,noreferrer');
-});
+// MAV Diseño & Costura: menú móvil y consulta por WhatsApp.
+// VERIFICAR antes de publicar: número de WhatsApp oficial de MAV.
+const WHATSAPP_NUMBER = '5493512123856';
+
+(function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('menu');
+
+  function setMenu(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menu.classList.toggle('open', open);
+  }
+
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  const form = document.getElementById('consulta-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.textContent = '';
+    status.classList.remove('error');
+
+    const data = new FormData(form);
+    const modalidad = data.get('modalidad');
+    const interes = (data.get('interes') || '').trim();
+    const nombre = (data.get('nombre') || '').trim();
+    const mensaje = (data.get('mensaje') || '').trim();
+
+    const problems = [];
+    if (!modalidad) problems.push('elegí una modalidad');
+    if (!interes) problems.push('elegí qué te interesa');
+    if (!nombre) problems.push('escribí tu nombre');
+
+    if (problems.length) {
+      status.textContent = 'Para enviar la consulta, ' + problems.join(', ') + '.';
+      status.classList.add('error');
+      const firstInvalid = !modalidad ? form.querySelector('input[name="modalidad"]')
+        : !interes ? document.getElementById('interes')
+        : document.getElementById('nombre');
+      firstInvalid.focus();
+      return;
+    }
+
+    const lines = [
+      'Hola MAV, quiero consultar.',
+      'Me llamo ' + nombre + '.',
+      'Modalidad: ' + modalidad + '.',
+      'Me interesa: ' + interes + '.'
+    ];
+    if (mensaje) lines.push('Comentario: ' + mensaje);
+
+    const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+    status.textContent = 'Se abrió WhatsApp con tu consulta. Si no se abrió, usá el botón "Escribir por WhatsApp".';
+  });
+})();
