@@ -325,13 +325,3 @@ em { font-style: italic; color: var(--terracota); }
 .pack .stage { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--terracota-hover); margin: 0; }
 .pack-buy .price { font-family: var(--serif); font-size: 2rem; color: var(--cafe); margin: 0 0 10px; }
 @media (min-width: 800px) { .pack { grid-template-columns: 1.4fr 1fr; padding: 32px; } }
-
-.cart { padding: 24px; }
-.cart-items { list-style: none; margin: 0 0 12px; padding: 0; }
-.cart-items li { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--linea); }
-.cart-empty { color: var(--taupe); display: block !important; }
-.cart-remove { background: none; border: 0; color: var(--terracota-hover); text-decoration: underline; cursor: pointer; font: inherit; padding: 6px; }
-.cart-total { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--serif); font-size: 1.6rem; color: var(--cafe); margin: 16px 0; }
-.cart-msg { min-height: 1.4em; margin: 12px 0 0; color: var(--salvia); font-size: .95rem; }
-.cart-msg.err { color: #8a2f2a; }
-.btn:disabled { opacity: .5; cursor: not-allowed; }
